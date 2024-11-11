@@ -68,23 +68,25 @@ static int attachbelow 		= 1;    /* 1 means attach after the currently active wi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	//{ "[M]",      monocle },
-	//{ "[@]",      spiral },
-	//{ "[\\]",     dwindle },
+	{ "MM:",      tilewide },/* 0 - first entry is default */
+	{ ":M:",      centeredmaster },// 1
+	/*{ "[]=",      tile },*/  
+	{ "[M]",      monocle },// 2 
+	{ "[@]",      spiral },// 3 
+	{ "[\\]",     dwindle },// 4   
 	//{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
+	{ "TTT",      bstack },// 5
+	{ "===",      bstackhoriz },// 6
 	//{ "HHH",      grid },
-	{ "###",      nrowgrid },
+	//{ "###",      nrowgrid },
 	//{ "---",      horizgrid },
 	//{ ":::",      gaplessgrid },
-	{ "MM:",      tilewide },
-	{ ":M:",      centeredmaster },
 	//{ ">M>",      centeredfloatingmaster },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "><>",      NULL },   /* 7 - no layout function means floating behavior */
 	{ NULL,       NULL },
 };
+
+
 
 /* key definitions */
 #define MODKEY Mod4Mask
@@ -135,7 +137,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_w,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
