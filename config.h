@@ -51,9 +51,11 @@ static const Rule rules[] = {
 	{ "obsidian",	  	NULL,       NULL,       1 << 3,       0,           -1 },
 	/* 5 - Reference management */	
 	{ "Zotero",	  	NULL,       NULL,       1 << 4,       0,           -1 },
-	/* 6 - development, eg. Zellij */	
+	/* 6 - development, */	
 	/* 7 - Virtual Machines */	
 	/* 8 - unused */	
+	/* 9 - background apps with helpers */	
+	{ "1password",	  	NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
