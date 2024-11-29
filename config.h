@@ -110,9 +110,9 @@ static const char *copycmd[]  = { "dmenu_cliphist", "add", NULL };
 static const char *cliphistcmd[]  = { "dmenu_cliphist", "sel", NULL };
 static const char *devcmd[]  = { "zellij", NULL };
 static const char *browsecmd[]  = { "firefox", NULL };
-static const char *coordcmd[]  = { "Brave-browser", NULL };
+static const char *coordcmd[]  = { "brave-browser", NULL };
 static const char *notecmd[]  = { "obsidian", NULL };
-static const char *refcmd[]  = { "Zotero", NULL };
+static const char *refcmd[]  = { "zotero", NULL };
 static const char *pwcmd[]  = { "1password", NULL };
 
 #include "movestack.c"
