@@ -26,6 +26,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"alacritty", NULL,
+	"1password", NULL,
 	NULL /* terminate */
 };
 
@@ -56,6 +57,7 @@ static const Rule rules[] = {
 	/* 8 - unused */	
 	/* 9 - background apps with helpers */	
 	{ "1password",	  	NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "1password",	  	NULL,       "Lock Screen - 1Password",       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -119,16 +121,16 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_c,      spawn,          {.v = copycmd } },
-	{ MODKEY|ShiftMask,		XK_c,      spawn,          {.v = pastecmd } },
-	{ MODKEY|ShiftMask,		XK_f1,     spawn,          {.v = devcmd } },
-	{ MODKEY|ShiftMask,	        XK_f2,     spawn,          {.v = browsecmd } },
-	{ MODKEY|ShiftMask,	        XK_f3,     spawn,          {.v = coordcmd } },
-	{ MODKEY|ShiftMask,             XK_f4,     spawn,          {.v = notecmd } },
-	{ MODKEY|ShiftMask,		XK_f5,     spawn,          {.v = refcmd } },
-	{ MODKEY|ShiftMask,		XK_f6,     spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,		XK_f7,     spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,		XK_f8,     spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,		XK_f9,     spawn,          {.v = pwcmd } },
+	{ MODKEY|ShiftMask,		XK_c,      spawn,          {.v = cliphistcmd } },
+	{ MODKEY|ShiftMask,		XK_F1,     spawn,          {.v = devcmd } },
+	{ MODKEY|ShiftMask,	        XK_F2,     spawn,          {.v = browsecmd } },
+	{ MODKEY|ShiftMask,	        XK_F3,     spawn,          {.v = coordcmd } },
+	{ MODKEY|ShiftMask,             XK_F4,     spawn,          {.v = notecmd } },
+	{ MODKEY|ShiftMask,		XK_F5,     spawn,          {.v = refcmd } },
+	{ MODKEY|ShiftMask,		XK_F6,     spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,		XK_F7,     spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,		XK_F8,     spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,		XK_F9,     spawn,          {.v = pwcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,	   toggleAttachBelow, {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
