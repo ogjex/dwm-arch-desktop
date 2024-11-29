@@ -26,7 +26,6 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"alacritty", NULL,
-	"bash", "-c", "bto", NULL,
 	NULL /* terminate */
 };
 
@@ -60,7 +59,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     	= 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     	= 0.75; /* factor of master area size [0.05..0.95] */
 static const int nmaster     	= 1;    /* number of clients in master area */
 static const int resizehints 	= 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; 	/* 1 will force focus on the fullscreen window */
@@ -89,8 +88,6 @@ static const Layout layouts[] = {
 	{ NULL,       NULL },
 };
 
-
-
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
@@ -107,11 +104,31 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
+static const char *copycmd[]  = { "dmenu_cliphist", "add", NULL };
+static const char *cliphistcmd[]  = { "dmenu_cliphist", "sel", NULL };
+static const char *devcmd[]  = { "zellij", NULL };
+static const char *browsecmd[]  = { "firefox", NULL };
+static const char *coordcmd[]  = { "Brave-browser", NULL };
+static const char *notecmd[]  = { "obsidian", NULL };
+static const char *refcmd[]  = { "Zotero", NULL };
+static const char *pwcmd[]  = { "1password", NULL };
+
 #include "movestack.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_c,      spawn,          {.v = copycmd } },
+	{ MODKEY|ShiftMask,		XK_c,      spawn,          {.v = pastecmd } },
+	{ MODKEY|ShiftMask,		XK_f1,     spawn,          {.v = devcmd } },
+	{ MODKEY|ShiftMask,	        XK_f2,     spawn,          {.v = browsecmd } },
+	{ MODKEY|ShiftMask,	        XK_f3,     spawn,          {.v = coordcmd } },
+	{ MODKEY|ShiftMask,             XK_f4,     spawn,          {.v = notecmd } },
+	{ MODKEY|ShiftMask,		XK_f5,     spawn,          {.v = refcmd } },
+	{ MODKEY|ShiftMask,		XK_f6,     spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,		XK_f7,     spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,		XK_f8,     spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,		XK_f9,     spawn,          {.v = pwcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,	   toggleAttachBelow, {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
